@@ -68,9 +68,9 @@ app.get('/carros', (request, response) => {
     response.status(200).send(dadosMapeados)
 })
 
-app.get('/filtrocarros', (request, response) => {
+app.get('/filtrocarros/:marcaBuscada', (request, response) => {
 
-    const marca = request.body.marca
+    const marca = request.params.marcaBuscada
    
     if(!marca){
         response.status(400).send(JSON.stringify("Mensagem: Informe uma marca válida."))
